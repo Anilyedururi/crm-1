@@ -1,4 +1,4 @@
-pipelne {
+pipeline {
     agent any
     stages{
         stage("maven build") {
@@ -8,35 +8,40 @@ pipelne {
             steps {
                 echo "maven build.."
             }    
-        }stage("sonar analysis") {
+        }
+        stage("sonar analysis") {
             when {
                 branch 'develop'
             }
             steps {
                 echo "sonar analysis.."
             }    
-        }stage("vulnarability scanning") {
+        }
+        stage("vulnarability scanning") {
             when {
                 branch 'develop'
             }
             steps {
                 echo "vulnarability scanning"
             }    
-        }stage("dev deploy") {
+        }
+        stage("dev deploy") {
             when {
                 branch 'develop'
             }
             steps {
                 echo "dev deploy"
             }    
-        }stage("test deploy") {
+        }
+        stage("test deploy") {
             when {
                 branch 'test'
             }
             steps {
                 echo "test deploy"
             }    
-        }stage("prod deploy") {
+        }
+        stage("prod deploy") {
             when {
                 branch 'master'
             }
